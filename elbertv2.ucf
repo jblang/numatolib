@@ -1,0 +1,179 @@
+# UCF file originally downloaded from
+# http://numato.com/downloads/dl/file/id/6/product/76/user_constraints_file.ucf
+
+CONFIG VCCAUX = "3.3" ;
+
+# Added TNM_NET = CLK to fix warning:
+# Unable to find an active 'TNM' or 'TimeGrp' constraint named 'CLK'.
+
+# Added IOSTANDARD = LVTTL to fix error:
+# Incompatible IOB's are locked to the same bank 0
+
+NET "clkin" LOC = P129 | IOSTANDARD = LVTTL | TNM_NET = CLK;
+TIMESPEC TS_CLK = PERIOD "CLK" 12 MHz HIGH 50%;
+
+
+############################################################################
+# VGA
+############################################################################
+
+    NET "hsync"              LOC = P93  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+    NET "vsync"              LOC = P92  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+
+    NET "blue[1]"            LOC = P98  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+    NET "blue[0]"            LOC = P96  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+
+    NET "green[2]"           LOC = P102 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+    NET "green[1]"           LOC = P101 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+    NET "green[0]"           LOC = P99  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+
+    NET "red[2]"             LOC = P105 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+    NET "red[1]"             LOC = P104 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+    NET "red[0]"             LOC = P103 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+
+############################################################################
+# Micro SD Card
+############################################################################
+
+    #NET "sd_clk"                LOC = P57  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+    #NET "sd_dat0"               LOC = P83  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+    #NET "sd_dat1"               LOC = P82  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+    #NET "sd_dat2"               LOC = P90  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+    #NET "sd_dat3"               LOC = P85  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+    #NET "sd_cmd"                LOC = P84  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+
+############################################################################
+# Audio
+############################################################################
+
+    #NET "audio_l"            LOC = P88  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;
+    #NET "audio_r"            LOC = P87  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ;	
+
+############################################################################
+# Seven Segment Display
+############################################################################
+
+	// Segments were not numbered in the standard order (a b c d e f g dp)
+	// which is used for seven-segment displays. I have renumbered them.
+
+    NET "segments[7]"   LOC = P114 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // dp
+    NET "segments[6]"   LOC = P117 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // a
+    NET "segments[5]"   LOC = P116 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // b
+    NET "segments[4]"   LOC = P115 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // c
+    NET "segments[3]"   LOC = P113 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // d
+    NET "segments[2]"   LOC = P112 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // e
+    NET "segments[1]"   LOC = P111 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // f
+    NET "segments[0]"   LOC = P110 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // g
+
+    NET "anodes[3]"         LOC = P124 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // S3
+    NET "anodes[2]"         LOC = P121 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // S2
+    NET "anodes[1]"         LOC = P120 | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // S1
+
+############################################################################
+# LED
+############################################################################
+
+    NET "leds[8]"            LOC = P46  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // D8
+    NET "leds[7]"            LOC = P47  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // D7
+    NET "leds[6]"            LOC = P48  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // D6
+    NET "leds[5]"            LOC = P49  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // D5
+    NET "leds[4]"            LOC = P50  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // D4
+    NET "leds[3]"            LOC = P51  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // D3
+    NET "leds[2]"            LOC = P54  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // D2
+    NET "leds[1]"            LOC = P55  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST ; // D1
+
+############################################################################
+# DIP Switches
+############################################################################
+
+	// DIP switches were originally numbered in the opposite direction of the
+	// labels on the board.  I have renumbered them to match.
+
+    NET "dips[8]"       LOC = P70  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    NET "dips[7]"       LOC = P69  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    NET "dips[6]"       LOC = P68  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    NET "dips[5]"       LOC = P64  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+	 NET "dips[4]"       LOC = P63  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    NET "dips[3]"       LOC = P60  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    NET "dips[2]"       LOC = P59  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    NET "dips[1]"       LOC = P58  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+
+############################################################################
+# Buttons
+############################################################################
+
+    #NET "buttons[1]"         LOC = P80  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ; // SW1
+    #NET "buttons[2]"         LOC = P79  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ; // SW2
+    #NET "buttons[3]"         LOC = P78  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ; // SW3
+    #NET "buttons[4]"         LOC = P77  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ; // SW4
+    #NET "buttons[5]"         LOC = P76  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ; // SW5
+    #NET "buttons[6]"         LOC = P75  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ; // SW6
+
+############################################################################
+# GPIO
+############################################################################
+	
+# HEADER P1
+
+    #NET "gpio_P1[0]"        LOC = P31  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P1[1]"        LOC = P32  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P1[2]"        LOC = P28  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P1[3]"        LOC = P30  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P1[4]"        LOC = P27  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P1[5]"        LOC = P29  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P1[6]"        LOC = P24  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P1[7]"        LOC = P25  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+
+	# Pins connected via external USB-to-TTL interface available from Amazon:
+	# http://www.amazon.com/PL2303HX-RS232-Cable-Module-Converter/dp/B008AGDTA4
+	
+	# Connect TX to adapter's RX (white wire) and RX to adapter's TX (green wire).
+	# The ground (black wire) must also be connected to a ground pin on the GPIO header.
+	
+	NET "txd"        LOC = P31  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST  ; // GPIO P1 pin 1
+	NET "rxd"        LOC = P32  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST  ; // GPIO P1 pin 2
+
+# HEADER P6
+   
+    #NET "gpio_P6[8]"        LOC = P19  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P6[9]"        LOC = P21  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P6[10]"       LOC = P18  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P6[11]"       LOC = P20  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P6[12]"       LOC = P15  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P6[13]"       LOC = P16  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P6[14]"       LOC = P12  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P6[15]"       LOC = P13  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+
+# HEADER P2
+
+    #NET "gpio_P2[16]"       LOC = P10  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P2[17]"       LOC = P11  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P2[18]"       LOC = P7   | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P2[19]"       LOC = P8   | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P2[20]"       LOC = P3   | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P2[21]"       LOC = P5   | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P2[22]"       LOC = P4   | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P2[23]"       LOC = P6   | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+
+# HEADER P4
+    
+	 #NET "gpio_P4[24]"      LOC = P141  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P4[25]"      LOC = P143  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P4[26]"      LOC = P138  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P4[27]"      LOC = P139  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P4[28]"      LOC = P134  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P4[29]"      LOC = P135  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P4[30]"      LOC = P130  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P4[31]"      LOC = P132  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+
+# HEADER P5
+    
+	 #NET "gpio_P5[1]"       LOC = P125  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P5[2]"       LOC = P123  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P5[3]"       LOC = P127  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P5[4]"       LOC = P126  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P5[5]"       LOC = P131  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P5[6]"       LOC = P91   | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P5[7]"       LOC = P142  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;
+    #NET "gpio_P5[8]"       LOC = P140  | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = FAST | PULLUP ;	
+	
